@@ -8,6 +8,7 @@ Kan brukes som utgangspunkt for å opprette nye mikrofrontends i Min Side.
 - vitest
 - @navikt/ds-css
 - @navikt/ds-react
+- precommit linting med a11y og react
 
 # Tilpass repo-et
 
