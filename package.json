@@ -13,7 +13,7 @@
   "dependencies": {
     "@navikt/ds-css": "0.12.6",
     "@navikt/ds-react": "0.14.3-beta.1",
-    "eslint-plugin-react": "^7.30.1",
+    "lint-staged": "^13.0.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-query": "3.34.7",
@@ -32,6 +32,7 @@
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.30.1",
     "husky": "^7.0.0",
     "jsdom": "19.0.0",
     "prettier": "^2.5.1",
@@ -44,5 +45,14 @@
   },
   "prettier": {
     "printWidth": 120
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint -c .eslintrc.pre-commit.js --fix",
+      "prettier --cache --write"
+    ],
+    "*.{css,md,html,json}": [
+      "prettier --cache --write"
+    ]
   }
 }
