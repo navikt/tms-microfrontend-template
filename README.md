@@ -11,6 +11,7 @@ Kan brukes som utgangspunkt for å opprette nye mikrofrontends i Min Side.
 # Tilpass repo-et
 
 1. Søk etter og erstatt tms-mikrofrontend-template med det som skal være navnet på den nye appen.
+2. Kommenter inn upload-dev og upload-prod i workflowen.
 
 Mikfrontenden blir lastet opp til nav sin CDN ved push til main.
 
