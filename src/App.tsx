@@ -1,11 +1,11 @@
-import { useQuery } from "react-query";
+import useSWRImmutable from "swr/immutable";
 import { fetcher } from "./api/api";
 import { apiUrl } from "./api/urls";
 import Komponent from "./components/Komponent";
 import "@navikt/ds-css";
 
 function App() {
-  const { data } = useQuery(apiUrl, fetcher);
+  const { data } = useSWRImmutable(apiUrl, fetcher);
 
   return (
     <section>
