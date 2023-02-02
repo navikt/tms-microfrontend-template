@@ -25,7 +25,7 @@ export default ({ command }) => ({
   build: {
     manifest: true,
     rollupOptions: {
-      input: resolve(__dirname, "src/Mikrofrontend.jsx"),
+      input: resolve(__dirname, "src/Mikrofrontend.tsx"),
       preserveEntrySignatures: "exports-only",
       output: {
         entryFileNames: "tms-mikrofrontend-template.[hash].js",
