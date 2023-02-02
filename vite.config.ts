@@ -5,14 +5,7 @@ import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import terser from "@rollup/plugin-terser";
 import { resolve } from "path";
-
-const reactUrl = "https://www.nav.no/tms-min-side-assets/react/18/esm/index.js";
-const reactDomUrl = "https://www.nav.no/tms-min-side-assets/react-dom/18/esm/index.js";
-
-const imports = {
-  react: reactUrl,
-  "react-dom": reactDomUrl,
-};
+import importmap from "./importmap.json";
 
 export default ({ command }) => ({
   plugins: [
@@ -24,7 +17,7 @@ export default ({ command }) => ({
       localEnabled: command === "serve",
     }),
     {
-      ...rollupImportMapPlugin([{ imports }]),
+      ...rollupImportMapPlugin([importmap]),
       enforce: "pre",
       apply: "build",
     },
