@@ -7,7 +7,11 @@ import "@navikt/ds-css";
 function App() {
   const { data } = useQuery(apiUrl, fetcher);
 
-  return <Komponent tekst={data?.tekst} />;
+  return (
+    <section>
+      <Komponent tekst={data?.tekst} />
+    </section>
+  );
 }
 
 export default App;

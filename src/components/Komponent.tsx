@@ -9,7 +9,7 @@ interface Props {
 const Komponent = ({ tekst }: Props) => {
   return (
     <div className="komponent">
-      <Panel>
+      <Panel border>
         <p>{tekst}</p>
       </Panel>
     </div>
