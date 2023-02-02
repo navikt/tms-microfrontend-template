@@ -23,11 +23,14 @@ export default ({ command }) => ({
     },
   ],
   build: {
-    lib: {
-      entry: resolve(__dirname, "src/Mikrofrontend.tsx"),
-      name: "tms-mikrofrontend-template",
-      formats: ["es"],
-      fileName: () => `tms-mikrofrontend-template.js`,
+    manifest: true,
+    rollupOptions: {
+      input: resolve(__dirname, "src/Mikrofrontend.jsx"),
+      preserveEntrySignatures: "exports-only",
+      output: {
+        entryFileNames: "tms-mikrofrontend-template.[hash].js",
+        format: "esm",
+      },
     },
   },
   test: {
