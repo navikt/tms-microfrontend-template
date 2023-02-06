@@ -1,15 +1,24 @@
-function getEnvironment(): "production" | "development" {
-  if (process.env.NODE_ENV === "production") {
+const isProduction = window.location.href.includes("www.nav.no");
+const isDevelopment = window.location.href.includes("www.dev.nav.no");
+
+export const getEnvironment = () => {
+  if (isProduction) {
     return "production";
   }
-  return "development";
-}
 
-type EnvUrl = { development: string; production: string };
+  if (isDevelopment) {
+    return "development";
+  }
+
+  return "local";
+};
+
+type EnvUrl = { development: string; production: string; local: string };
 
 const API_URL: EnvUrl = {
-  development: "http://localhost:3000/api/endpoint",
-  production: "https://person.nav.no/api/endpoint",
+  local: "http://localhost:3000/api/endpoint",
+  development: "https://www.dev.nav.no/api/endpoint",
+  production: "https://www.nav.no/api/endpoint",
 };
 
 export const apiUrl = API_URL[getEnvironment()];
