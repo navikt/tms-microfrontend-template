@@ -9,7 +9,7 @@ Kan brukes som utgangspunkt for å opprette nye mikrofrontends i Min Side.
 3. Sett inn riktig team navn i nais.yaml og under cdn-upload i workflowen.
 4. Kommenter inn upload-dev og upload-prod i workflowen.
 
-Mikfrontenden blir lastet opp til nav sin CDN ved push til main og har et manifest som ligger deployes til Nais.
+Mikfrontenden blir lastet opp til nav sin CDN ved push til main og har et manifest som deployes til Nais.
 
 # Kom i gang
 
