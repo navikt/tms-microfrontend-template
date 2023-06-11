@@ -1,7 +1,11 @@
 import { useContext } from "react";
-import { LanguageContext } from "./LanguageProvider";
+import { LanguageContext, Language } from "./LanguageProvider";
 
-const text = {
+type Text = {
+  [key: string]: { [key in Language]: string };
+};
+
+const text: Text = {
   microfrontendTitle: {
     nb: "Dette kommer til å bli en awesome mikrofrontend!",
     nn: "Dette kjem til å bli ein awesome mikrofrontend!",
@@ -9,7 +13,7 @@ const text = {
   },
 };
 
-export default function useTranslate(id) {
+export default function useTranslate(id: string) {
   const language = useContext(LanguageContext);
   return text[id][language];
 }
