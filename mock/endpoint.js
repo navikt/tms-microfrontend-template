@@ -4,7 +4,7 @@ export default [
     method: "get",
     response: () => {
       return {
-        tekst: "Dette kommer til å bli en awesome mikrofrontend! 😊 🎉",
+        emoji: "😊 🎉",
       };
     },
   },
