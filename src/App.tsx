@@ -1,4 +1,5 @@
 import useSWRImmutable from "swr/immutable";
+import useTranslate from "./language/useTranslate.jsx";
 import { fetcher } from "./api/api";
 import { apiUrl } from "./api/urls";
 import Komponent from "./components/Komponent";
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <section>
-      <Komponent tekst={data?.tekst} />
+      <Komponent emoji={data?.emoji} tekst={useTranslate("microfrontendTitle")} />
     </section>
   );
 }
