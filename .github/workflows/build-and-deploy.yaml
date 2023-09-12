@@ -51,35 +51,3 @@ jobs:
 #          cluster: dev-gcp
 #          id: "tms-mikfrofrontend-template-vitets"
 #          url: ${{ steps.export-cdn-url.outputs.url }}
-
-
-#      - name: "Build and publish Docker image"
-#        run: "docker build --pull --tag ${IMAGE} . && echo $GITHUB_TOKEN | docker login\
-#          \ --username $GITHUB_REPOSITORY --password-stdin https://ghcr.io\
-#          \ && docker push ${IMAGE}"
-#        env:
-#          "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-
-#  deploy-dev:
-#    runs-on: "ubuntu-latest"
-#    needs: "build"
-#    steps:
-#      - uses: "actions/checkout@v3"
-#      - name: "Deploy to dev"
-#        uses: "nais/deploy/actions/deploy@v1"
-#        env:
-#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-#          CLUSTER: dev-gcp
-#          RESOURCE: nais/dev-gcp/nais.yaml
-#  deploy-prod:
-#    if: github.ref == 'refs/heads/main'
-#    runs-on: "ubuntu-latest"
-#    needs: "build"
-#    steps:
-#      - uses: "actions/checkout@v3"
-#      - name: "Deploy to prod"
-#        uses: "nais/deploy/actions/deploy@v1"
-#        env:
-#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-#          CLUSTER: prod-gcp
-#          RESOURCE: nais/prod-gcp/nais.yaml
