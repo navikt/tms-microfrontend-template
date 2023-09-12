@@ -37,7 +37,7 @@ jobs:
       - name: export-cdn-url
         run: |
           paths="${{ steps.cdn-upload.outputs.uploaded }}"
-          cdn_js_path=$(echo $files | cut -d',' -f1)
+          cdn_js_path=$(echo $paths | cut -d',' -f1)
           echo "url=https://cdn.nav.no/$cdn_js_path" >> $GITHUB_OUTPUT
       - name: "update min-side-dev-manifest"
         uses: "navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest.yaml@main"
