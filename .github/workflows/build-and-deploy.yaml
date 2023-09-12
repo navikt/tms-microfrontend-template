@@ -15,8 +15,6 @@ jobs:
   build:
     name: "build"
     runs-on: "ubuntu-latest"
-    outputs:
-      cdn-url: ${{ steps.export-cdn-url.outputs.url }}
     steps:
       - uses: "actions/checkout@v3"
       - uses: "actions/setup-node@v3"
