@@ -4,15 +4,13 @@ import "./Komponent.css";
 
 interface Props {
   tekst: string;
-  emoji: string;
 }
 
-const Komponent = ({ tekst, emoji }: Props) => {
+const Komponent = ({ tekst }: Props) => {
   return (
     <div className="komponent">
       <Panel border>
-        <p>{tekst}</p>
-        <p>{emoji}</p>
+        <p>{tekst} 😊🎉</p>
       </Panel>
     </div>
   );
