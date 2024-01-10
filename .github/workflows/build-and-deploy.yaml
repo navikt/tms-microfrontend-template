@@ -4,50 +4,65 @@ on:
     branches:
       - "main"
       - "dev-*"
-env:
-  "IMAGE": "ghcr.io/${{ github.repository }}/tms-mikrofrontend-template:${{ github.sha }}"
-permissions:
-  contents: "read"
-  id-token: "write"
-  packages: "write"
 
 jobs:
   build:
     name: "build"
     runs-on: "ubuntu-latest"
+
+    permissions:
+      contents: "read"
+      id-token: "write"
+      packages: "write"
+
+    outputs:
+      upload_url: ${{ steps.extract-manifest-url.outputs.upload_url }}
+
     steps:
-      - uses: "actions/checkout@v3"
-      - uses: "actions/setup-node@v3"
+      - uses: "actions/checkout@v4"
+      - uses: "actions/setup-node@v4"
         with:
           node-version: 20
           registry-url: "https://npm.pkg.github.com"
           cache: "npm"
+
       - name: "Install dependencies"
         run: "npm ci"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+
       - name: "Build application"
         run: "npm run build"
-      - name: cdn-upload
+
+      - name: "CDN upload"
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
           cdn-team-name: mitt-team-navn
           source: ./dist/
           destination: "tms-mikrofrontend-template"
-      - name: export-cdn-url
+
+      - name: "Extract manifest url"
+        id: extract-manifest-url
         run: |
-          paths="${{ steps.cdn-upload.outputs.uploaded }}"
-          cdn_js_path=$(echo $paths | cut -d',' -f1)
-          echo "url=https://cdn.nav.no/$cdn_js_path" >> $GITHUB_OUTPUT
-      - name: "update min-side-dev-manifest"
-        uses: "navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest.yaml@main"
-        with:
-          cluster: dev-gcp
-          id: "tms-mikfrofrontend-template-vitets"
-          url: ${{ steps.export-cdn-url.outputs.url }}
-#      - name: "update min-side-prod-manifest"
-#        uses: "navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest.yaml@main"
-#        with:
-#          cluster: dev-gcp
-#          id: "tms-mikfrofrontend-template-vitets"
-#          url: ${{ steps.export-cdn-url.outputs.url }}
+          files="${{ steps.cdn-upload.outputs.uploaded }}"
+          first_file=$(echo $files | cut -d',' -f1)
+          echo "upload_url=https://cdn.nav.no/$first_file" >> $GITHUB_OUTPUT
+
+#  update-manifest-dev-gcp:
+#    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest.yaml@main
+#    needs: build
+#    with:
+#      cluster: dev-gcp
+#      id: "tms-mikfrofrontend-template-vitets"
+#      url: ${{needs.build.outputs.upload_url}}
+#    secrets: inherit
+
+#  update-manifest-prod-gcp:
+#    if: github.ref == 'refs/heads/main'
+#    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest.yaml@main
+#    needs: build
+#    with:
+#      cluster: prod-gcp
+#      id: "tms-mikfrofrontend-template-vitets"
+#      url: ${{needs.build.outputs.upload_url}}
+#    secrets: inherit
