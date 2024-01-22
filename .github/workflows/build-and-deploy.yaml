@@ -39,7 +39,7 @@ jobs:
         with:
           cdn-team-name: mitt-team-navn
           source: ./dist/
-          destination: "tms-mikrofrontend-template"
+          destination: "tms-mikrofrontend-template-vitets"
 
       - name: "Extract manifest url"
         id: extract-manifest-url
@@ -53,7 +53,7 @@ jobs:
 #    needs: build
 #    with:
 #      cluster: dev-gcp
-#      id: "tms-mikfrofrontend-template-vitets"
+#      id: "tms-mikrofrontend-template-vitets"
 #      url: ${{needs.build.outputs.upload_url}}
 #    secrets: inherit
 
@@ -63,6 +63,6 @@ jobs:
 #    needs: build
 #    with:
 #      cluster: prod-gcp
-#      id: "tms-mikfrofrontend-template-vitets"
+#      id: "tms-mikrofrontend-template-vitets"
 #      url: ${{needs.build.outputs.upload_url}}
 #    secrets: inherit

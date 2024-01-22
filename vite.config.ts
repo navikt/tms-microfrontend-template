@@ -1,12 +1,11 @@
-import { defineConfig } from "vite";
+import terser from "@rollup/plugin-terser";
 import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
-import terser from "@rollup/plugin-terser";
-import { resolve } from "path";
 import importmap from "./importmap.json";
 
-export default ({ command }) => ({
+export default () => ({
   plugins: [
     react(),
     terser(),
