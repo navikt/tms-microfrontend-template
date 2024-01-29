@@ -10,11 +10,11 @@ Kan brukes som utgangspunkt for å opprette nye microfrontends i Min Side.
 5. Kommenter inn upload-dev og upload-prod i workflowen.
 6. Ta kontakt med oss på slack i #minside-microfrontends for å få tilgang til å trigge workflowen.
 
-Mikfrontenden blir lastet opp til nav sin CDN ved push til main.
+Micfrontenden blir lastet opp til NAV sin CDN ved push til main.
 
 # Kom i gang
 
-1. Bygg tms-mikrofrontend-template ved å kjøre npm run build
+1. Bygg tms-microfrontend-template ved å kjøre npm run build
 2. Start appen lokalt ved å kjøre npm run dev
 3. Appen nås på http://localhost:3000
 
