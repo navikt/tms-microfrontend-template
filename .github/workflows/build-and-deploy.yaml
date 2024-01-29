@@ -34,12 +34,12 @@ jobs:
       - name: "Build application"
         run: "npm run build"
 
-      - name: "cdn-upload"
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: mitt-team-navn
-          source: ./dist/
-          destination: "tms-mikrofrontend-template-vitets"
+#      - name: "cdn-upload"
+#        uses: navikt/frontend/actions/cdn-upload/v1@main
+#        with:
+#          cdn-team-name: mitt-team-navn
+#          source: ./dist/
+#          destination: "tms-mikrofrontend-template"
 
       - name: "Extract manifest url"
         id: extract-manifest-url
@@ -53,7 +53,7 @@ jobs:
 #    needs: build
 #    with:
 #      cluster: dev-gcp
-#      id: "tms-mikrofrontend-template-vitets"
+#      id: "tms-microfrontend-template"
 #      url: ${{needs.build.outputs.upload_url}}
 #    secrets: inherit
 
@@ -63,6 +63,6 @@ jobs:
 #    needs: build
 #    with:
 #      cluster: prod-gcp
-#      id: "tms-mikrofrontend-template-vitets"
+#      id: "tms-microfrontend-template"
 #      url: ${{needs.build.outputs.upload_url}}
 #    secrets: inherit

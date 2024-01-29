@@ -1,6 +1,6 @@
 {
-  "name": "tms-mikrofrontend-template-vitets",
-  "version": "2.0.0",
+  "name": "tms-microfrontend-template",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --port 3000",

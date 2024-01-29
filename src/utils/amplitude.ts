@@ -10,8 +10,8 @@ export const initAmplitude = () => {
   });
 };
 
-//TODO: komponent må fylles ut med et identifiserende navn for mikrofrontenden
-//Default er at navnet på appen blir benyttet ved replace av "tms-mikrofrontend-template-vitets"
+//TODO: komponent må fylles ut med et identifiserende navn for microfrontend
+//Default er at navnet på appen blir benyttet ved replace av "tms-microfrontend-template"
 export const logNavigereEvent = () => {
-  track("navigere", { komponent: "tms-mikrofrontend-template-vitets" });
+  track("navigere", { komponent: "tms-microfrontend-template" });
 };
