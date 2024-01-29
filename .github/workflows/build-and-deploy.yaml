@@ -34,7 +34,8 @@ jobs:
       - name: "Build application"
         run: "npm run build"
 
-#      - name: "cdn-upload"
+#      - name: "CDN upload"
+#        id: "cdn-upload"
 #        uses: navikt/frontend/actions/cdn-upload/v1@main
 #        with:
 #          cdn-team-name: mitt-team-navn
