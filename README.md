@@ -1,6 +1,6 @@
 # tms-microfrontend-template
 
-Kan brukes som utgangspunkt for å opprette nye mikrofrontends i Min Side.
+Kan brukes som utgangspunkt for å opprette nye microfrontends i Min Side.
 
 # Tilpass repo-et
 
