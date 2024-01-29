@@ -34,13 +34,12 @@ jobs:
       - name: "Build application"
         run: "npm run build"
 
-#      - name: "CDN upload"
-#        id: "cdn-upload"
+#      - id: cdn-upload
 #        uses: navikt/frontend/actions/cdn-upload/v1@main
 #        with:
 #          cdn-team-name: mitt-team-navn
 #          source: ./dist/
-#          destination: "tms-mikrofrontend-template"
+#          destination: "tms-microfrontend-template"
 
       - name: "Extract manifest url"
         id: extract-manifest-url
