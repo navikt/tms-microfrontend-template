@@ -55,6 +55,7 @@ jobs:
 #      cluster: dev-gcp
 #      id: "tms-microfrontend-template"
 #      url: ${{needs.build.outputs.upload_url}}
+#      commitmsg: ${{ github.event.head_commit.message}}
 #    secrets: inherit
 
 #  update-manifest-prod-gcp:
@@ -65,4 +66,5 @@ jobs:
 #      cluster: prod-gcp
 #      id: "tms-microfrontend-template"
 #      url: ${{needs.build.outputs.upload_url}}
+#      commitmsg: ${{ github.event.head_commit.message}}
 #    secrets: inherit
