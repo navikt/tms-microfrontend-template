@@ -1,5 +1,5 @@
 import { Panel } from "@navikt/ds-react";
-import "./Komponent.css";
+import styles from "./Komponent.module.css";
 
 interface Props {
   tekst: string;
@@ -7,7 +7,7 @@ interface Props {
 
 const Komponent = ({ tekst }: Props) => {
   return (
-    <div className="komponent">
+    <div className={styles.komponent}>
       <Panel border>
         <p>{tekst} 😊🎉</p>
       </Panel>
